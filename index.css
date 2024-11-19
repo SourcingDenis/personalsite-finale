@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+body {
+  @apply bg-black text-white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); }
+  50% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
+}
+
+@keyframes border-gradient {
+  0%, 100% {
+    border-image: linear-gradient(
+      to right,
+      rgba(238, 119, 82, 0.5),
+      rgba(231, 60, 126, 0.5),
+      rgba(35, 166, 213, 0.5),
+      rgba(35, 213, 171, 0.5)
+    ) 1;
+  }
+  50% {
+    border-image: linear-gradient(
+      to left,
+      rgba(238, 119, 82, 0.5),
+      rgba(231, 60, 126, 0.5),
+      rgba(35, 166, 213, 0.5),
+      rgba(35, 213, 171, 0.5)
+    ) 1;
+  }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s infinite;
+  }
+  
+  .animate-gradient {
+    background: linear-gradient(
+      -45deg,
+      rgba(238, 119, 82, 0.05),
+      rgba(231, 60, 126, 0.05),
+      rgba(35, 166, 213, 0.05),
+      rgba(35, 213, 171, 0.05)
+    );
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+  }
+  
+  .hover-float {
+    @apply transition-transform duration-300;
+  }
+  
+  .hover-float:hover {
+    animation: float 2s ease-in-out infinite;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-glow:hover {
+    animation: glow 2s ease-in-out infinite;
+  }
+  
+  .gradient-border {
+    position: relative;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      45deg,
+      rgba(238, 119, 82, 0.3),
+      rgba(231, 60, 126, 0.3),
+      rgba(35, 166, 213, 0.3),
+      rgba(35, 213, 171, 0.3)
+    );
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .gradient-border:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Social Icon Animations */
+.social-icon-wrapper {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.social-icon {
+  transform-style: preserve-3d;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* YouTube specific glow */
+.youtube-icon:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.5));
+  color: #ff0000;
+}
+
+/* Spotify specific glow */
+.spotify-icon:hover {
+  filter: drop-shadow(0 0 8px rgba(30, 215, 96, 0.5));
+  color: #1ED760;
+}
+
+.social-icon-wrapper:hover .social-icon {
+  transform: 
+    rotateY(360deg) 
+    scale(1.1) 
+    perspective(1000px) 
+    rotateX(10deg);
+}
+
+@keyframes icon-pulse {
+  0% {
+    transform: scale(1) rotateY(0deg);
+  }
+  50% {
+    transform: scale(1.05) rotateY(180deg);
+  }
+  100% {
+    transform: scale(1) rotateY(360deg);
+  }
+}
+
+.social-icon-wrapper:hover .social-icon {
+  animation: icon-pulse 2s infinite;
+}
+
+/* Enhanced glow effect on hover */
+.social-icon-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, 
+    rgba(255,255,255,0.15) 0%,
+    transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  filter: blur(5px);
+}
+
+.social-icon-wrapper:hover::after {
+  opacity: 1;
+}
+
+/* Replace SoundCloud styles with DJ icon */
+.soundcloud-icon:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 85, 0, 0.5));
+  color: #ff5500;
+}
+
+/* Add these lines to your existing CSS */
+.fixed-wrapper {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.fixed-wrapper > * {
+  pointer-events: auto;
+}
+
+/* Add these lines to your existing CSS */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes border-rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+.animate-border-flow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(
+    from var(--angle),
+    #4f46e5,
+    #818cf8,
+    #4f46e5
+  );
+  border-radius: inherit;
+  animation: border-rotate 3s linear infinite;
+  z-index: -1;
+}
+
+.animate-border-flow::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: #18181b;
+  border-radius: inherit;
+  z-index: -1;
+}
