@@ -29,7 +29,7 @@ const Header = () => {
           </div>
           <div>
             <h1 className="font-semibold leading-7 text-white">Denys Dinkevych</h1>
-            <p className="text-xs font-light text-gray-400 group-hover:text-gray-300">Talent Sourcing Enthusiast</p>
+            <p className="text-xs font-light text-gray-400 group-hover:text-gray-300">Talent, Music & Tech</p>
           </div>
         </div>
       </div>
