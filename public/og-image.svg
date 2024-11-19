@@ -1,0 +1,84 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#000000"/>
+  
+  <!-- Main Triangle -->
+  <path 
+    d="M600 100L900 500H300L600 100Z" 
+    fill="url(#triangle-gradient)"
+    opacity="0.15"
+  />
+  
+  <!-- Abstract Patterns -->
+  <g opacity="0.1">
+    <!-- Grid Lines -->
+    <path d="M-200 730L1400 -100" stroke="white" stroke-width="0.5"/>
+    <path d="M-150 730L1450 -100" stroke="white" stroke-width="0.5"/>
+    <path d="M-100 730L1500 -100" stroke="white" stroke-width="0.5"/>
+    <path d="M-50 730L1550 -100" stroke="white" stroke-width="0.5"/>
+    
+    <!-- Circles -->
+    <circle cx="300" cy="430" r="400" stroke="white" stroke-width="0.5" fill="none"/>
+    <circle cx="300" cy="430" r="300" stroke="white" stroke-width="0.5" fill="none"/>
+    <circle cx="300" cy="430" r="200" stroke="white" stroke-width="0.5" fill="none"/>
+    
+    <!-- Right Side Circles -->
+    <circle cx="900" cy="200" r="250" stroke="white" stroke-width="0.5" fill="none"/>
+    <circle cx="900" cy="200" r="150" stroke="white" stroke-width="0.5" fill="none"/>
+  </g>
+  
+  <!-- Floating Shapes -->
+  <g opacity="0.15">
+    <!-- Small Triangles -->
+    <path d="M100 100L150 200L50 200Z" fill="white"/>
+    <path d="M1100 500L1150 600L1050 600Z" fill="white"/>
+    
+    <!-- Small Squares -->
+    <rect x="900" y="100" width="50" height="50" fill="white"/>
+    <rect x="200" y="500" width="30" height="30" fill="white"/>
+  </g>
+  
+  <!-- Eye Symbol (Centered) -->
+  <g transform="translate(560, 265)">
+    <ellipse 
+      cx="40" 
+      cy="50" 
+      rx="35" 
+      ry="20" 
+      fill="none" 
+      stroke="white" 
+      stroke-width="2"
+      opacity="0.3"
+    />
+    <circle 
+      cx="40" 
+      cy="50" 
+      r="12" 
+      fill="white"
+      opacity="0.3"
+    />
+  </g>
+  
+  <!-- Gradient Overlays -->
+  <rect width="1200" height="630" fill="url(#main-gradient)" style="mix-blend-mode: overlay"/>
+  <rect width="1200" height="630" fill="url(#vignette)" style="mix-blend-mode: multiply"/>
+  
+  <!-- Gradients Definition -->
+  <defs>
+    <linearGradient id="main-gradient" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#18181B"/>
+      <stop offset="50%" stop-color="#09090B"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="black"/>
+    </radialGradient>
+    
+    <linearGradient id="triangle-gradient" x1="600" y1="100" x2="600" y2="500">
+      <stop offset="0%" stop-color="white" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg> 
