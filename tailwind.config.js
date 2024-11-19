@@ -26,7 +26,10 @@ export default {
             opacity: '1'
           }
         }
-      }
+      },
+      transitionProperty: {
+        'opacity': 'opacity',
+      },
     },
   },
   plugins: [],
