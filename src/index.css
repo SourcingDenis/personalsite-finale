@@ -288,3 +288,60 @@ body {
   border-radius: inherit;
   z-index: -1;
 }
+
+/* Add these new animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes blink {
+  0%, 90%, 100% {
+    transform: scale(1);
+  }
+  95% {
+    transform: scale(0.1);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: blink 4s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+/* Find the existing .project-preview class or add this new CSS */
+.project-preview {
+  width: 100%;
+  max-width: 1200px; /* Increased from 900px */
+  height: auto;
+  border-radius: 8px;
+  margin: 2rem 0; /* Increased margin for better spacing */
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+/* Update the media query for larger screens */
+@media (min-width: 1024px) {
+  .project-preview {
+    max-width: 1400px; /* Increased from 1000px */
+  }
+}
