@@ -51,13 +51,13 @@ const Projects = () => {
       href: "https://search.sourcingdenis.live",
       title: "Job Search Hub",
       description: "Advanced job search platform with real-time filtering and comprehensive search capabilities.",
-      image: "/search-preview.gif"
+      image: "./search-preview.gif"
     },
     {
       href: "https://githubber.sourcingdenis.live/",
       title: "DevFinder",
       description: "Search through millions of GitHub profiles with advanced filtering and real-time data.",
-      image: "/devfinder-preview.png"
+      image: "./devfinder-preview.png"
     }
   ]
 
