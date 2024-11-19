@@ -103,11 +103,36 @@ body {
   }
   
   .hover-glow {
-    @apply transition-all duration-300;
+    position: relative;
+    transition: all 0.5s ease;
   }
   
   .hover-glow:hover {
-    animation: glow 2s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  }
+  
+  .hover-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .hover-glow:hover::before {
+    opacity: 1;
   }
   
   .gradient-border {

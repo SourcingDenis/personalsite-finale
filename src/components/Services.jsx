@@ -38,23 +38,28 @@ const Services = () => {
   return (
     <div className="max-w-[700px] my-[2rem] w-full">
       <div className="flex items-center justify-between w-full">
-        <h1 className="text-gray-200">services 🛠️</h1>
+        <h1 className="text-gray-200">how i can help 🤝</h1>
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-col:2 xl:grid-cols-2 gap-2 mt-[0.75rem]">
         <ServiceCard
           href="https://www.linkedin.com/in/sourcingdenis/"
-          title="🎯 Talent Sourcing"
-          description="Specialized in finding top-tier talent for the iGaming industry."
+          title="🎯 Sourcing Strategy"
+          description="Setting up effective sourcing functions and processes from scratch, including tools and methodologies."
         />
         <ServiceCard
           href="https://www.linkedin.com/in/sourcingdenis/"
-          title="💼 Recruitment Consulting"
-          description="Expert advice on recruitment strategies and talent acquisition."
+          title="📊 TA Analytics"
+          description="Implementing comprehensive talent acquisition analytics and metrics for data-driven recruitment."
         />
         <ServiceCard
           href="https://www.linkedin.com/in/sourcingdenis/"
-          title="🌐 iGaming Industry Insights"
-          description="In-depth knowledge and trends in the iGaming sector."
+          title="🤖 AI-Powered Recruitment"
+          description="Leveraging AI tools and automation to enhance recruitment efficiency and effectiveness."
+        />
+        <ServiceCard
+          href="https://www.linkedin.com/in/sourcingdenis/"
+          title="👥 Team Training"
+          description="Training recruitment teams in modern sourcing techniques and best practices."
         />
       </div>
     </div>

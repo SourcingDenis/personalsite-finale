@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import searchPreview from '../assets/search-preview.gif'
+import devfinderPreview from '../assets/devfinder-preview.png'
 
 const ProjectCard = ({ href, title, description, image }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -56,13 +58,13 @@ const projectsList = [
     href: "https://search.sourcingdenis.live",
     title: "Job Search Hub",
     description: "Advanced job search platform with real-time filtering and comprehensive search capabilities.",
-    image: "./assets/search-preview.gif"
+    image: searchPreview
   },
   {
     href: "https://githubber.sourcingdenis.live/",
     title: "DevFinder",
     description: "Search through millions of GitHub profiles with advanced filtering and real-time data.",
-    image: "./assets/devfinder-preview.png"
+    image: devfinderPreview
   }
 ];
 

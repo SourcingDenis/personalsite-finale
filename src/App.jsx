@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Header from './components/Header'
-import CurrentlyCooking from './components/CurrentlyCooking'
 import Services from './components/Services'
 import Projects from './components/Projects'
 import Hobbies from './components/Hobbies'
@@ -20,7 +19,6 @@ function App() {
       <main className={`flex min-w-screen flex-col items-center justify-between ${isLoaded ? 'animate-fadeIn' : 'opacity-0'}`}>
         <div className="animate-gradient flex flex-col flex-wrap items-center justify-center mt-[3rem] mb-[6rem] p-3 w-full max-w-[650px]">
           <Header />
-          <CurrentlyCooking />
           <Services />
           <Projects />
           <Hobbies />

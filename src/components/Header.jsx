@@ -28,7 +28,7 @@ const Header = () => {
             />
           </div>
           <div>
-            <h1 className="font-semibold leading-7 transition-colors group-hover:text-blue-400">Denys Dinkevych</h1>
+            <h1 className="font-semibold leading-7 transition-colors group-hover:text-white">Denys Dinkevych</h1>
             <p className="text-xs font-light text-gray-400 group-hover:text-gray-300">Talent Sourcing Enthusiast</p>
           </div>
         </div>
