@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 
 const ClientLink = ({ href, title, description }) => {
   const handleMouseMove = (e) => {
@@ -89,37 +89,27 @@ const FreelanceClients = () => {
     }
   ];
 
-  return (
-    <div className="flex flex-col mt-8 w-full">
-      <button 
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="flex items-center justify-between w-full hover:text-gray-200 transition-colors group"
-      >
-        <h1 className="font-normal group-hover:translate-x-1 transition-transform duration-300">
-          professional experience 🧱
-        </h1>
-        <span 
-          className="text-xl transition-all duration-300" 
-          style={{ 
-            transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
-            opacity: isExpanded ? '0.7' : '1'
-          }}
-        >
-          ⌄
-        </span>
-      </button>
-      <div className="shrink-0 h-[1px] mt-2 w-full bg-zinc-800/50 backdrop-blur-sm"></div>
-      <div 
-        className={`flex flex-col justify-center items-start w-full gap-3 transition-all duration-500 ease-in-out overflow-hidden ${
-          isExpanded ? 'mt-4 max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        {experience.map((exp, index) => (
-          <ExperienceCard key={index} {...exp} />
-        ))}
-      </div>
+  const experienceCards = useMemo(() => (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {experience.map((exp, index) => (
+        <ExperienceCard key={index} {...exp} />
+      ))}
     </div>
-  )
+  ), []);
+
+  return (
+    <div className="my-8">
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="flex items-center gap-2"
+      >
+        <h2 className="text-2xl font-bold">Freelance Experience</h2>
+        <span>{isExpanded ? '↑' : '↓'}</span>
+      </button>
+      
+      {isExpanded && experienceCards}
+    </div>
+  );
 }
 
 export default FreelanceClients
