@@ -1,5 +1,5 @@
-import React from 'react';
-import Cal from "@calcom/embed-react";
+import React, { useEffect } from 'react';
+import Cal, { getCalApi } from "@calcom/embed-react";
 
 const Header = () => {
   const handleMouseMove = (e) => {
@@ -10,9 +10,58 @@ const Header = () => {
     e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
   };
 
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi();
+      cal("ui", {
+        theme: 'light',
+        styles: { branding: { brandColor: "#000000" } },
+        hideEventTypeDetails: false,
+        layout: "month_view",
+        iframeAttrs: {
+          style: {
+            width: '100%',
+            height: '100%',
+            'min-height': '100vh',
+          }
+        }
+      });
+    })();
+  }, []);
+
+  const handleCalendarClick = async () => {
+    const cal = await getCalApi();
+    cal("showModal", {
+      calLink: "sourcingdenis/15min",
+      layout: "month_view",
+      config: {
+        iframeAttrs: {
+          style: {
+            width: '100%',
+            height: '100%',
+            'min-height': '100vh',
+          }
+        }
+      }
+    });
+  };
+
   return (
     <>
-      <Cal calLink="sourcingdenis/15min" style={{ display: 'none' }} />
+      <Cal
+        calLink="sourcingdenis/15min"
+        style={{ display: 'none' }}
+        config={{
+          layout: "month_view",
+          iframeAttrs: {
+            style: {
+              width: '100%',
+              height: '100%',
+              'min-height': '100vh',
+            }
+          }
+        }}
+      />
       <div 
         onMouseMove={handleMouseMove}
         className="group relative flex justify-between items-center w-full border p-4 rounded-2xl border-zinc-800 overflow-hidden hover:border-transparent transition-all duration-300 hover-glow bg-zinc-950 gradient-border"
@@ -39,9 +88,8 @@ const Header = () => {
 
         <div className="relative z-10 flex gap-0.5 group-hover:translate-x-1">
           <button
-            data-cal-link="sourcingdenis/15min"
-            data-cal-config='{"layout":"month_view"}'
-            className="relative p-1.5 rounded-lg transition-colors hover:bg-zinc-800 group/calendar text-white"
+            onClick={handleCalendarClick}
+            className="relative p-1.5 rounded-lg transition-colors hover:bg-zinc-800 group/calendar text-white touch-manipulation"
             aria-label="Schedule a meeting"
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-0 group-hover/calendar:opacity-75 transition duration-500"></div>

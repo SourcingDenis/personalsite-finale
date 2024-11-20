@@ -6,26 +6,13 @@ import Hobbies from './components/Hobbies'
 import LatestBlog from './components/LatestBlog'
 import Footer from './components/Footer'
 import * as gtag from './lib/gtag'
-import { getCalApi } from "@calcom/embed-react";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Initialize Cal.com
-    (async function () {
-      const cal = await getCalApi();
-      cal("ui", {
-        theme: 'light',
-        styles: { branding: { brandColor: "#000000" } },
-        hideEventTypeDetails: false,
-      });
-    })();
-
-    // Set loaded state after a brief delay to ensure smooth transition
     const timer = setTimeout(() => {
       setIsLoaded(true);
-      // Track page view when the app loads
       gtag.pageview(window.location.pathname);
     }, 100);
 
