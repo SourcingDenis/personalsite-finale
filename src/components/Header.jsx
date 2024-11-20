@@ -53,7 +53,7 @@ const Header = () => {
       <div className="relative z-10 flex gap-0.5 group-hover:translate-x-1">
         <button
           onClick={handleCalendarClick}
-          className="relative p-1.5 rounded-lg transition-colors hover:bg-zinc-800 group/calendar text-white touch-manipulation"
+          className="relative p-1.5 rounded-lg transition-colors hover:bg-zinc-800 group/calendar text-white touch-manipulation hidden sm:block"
           aria-label="Schedule a meeting"
         >
           <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-0 group-hover/calendar:opacity-75 transition duration-500"></div>
