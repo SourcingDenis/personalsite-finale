@@ -1,5 +1,6 @@
 import React from 'react';
-import Cal from "@calcom/embed-react";
+import Cal, { getCalApi } from "@calcom/embed-react";
+import { useEffect } from "react";
 
 const Header = () => {
   const handleMouseMove = (e) => {
@@ -9,6 +10,17 @@ const Header = () => {
     e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
     e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
   };
+
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi();
+      cal("ui", {
+        theme: 'light',
+        styles: { branding: { brandColor: "#000000" } },
+        hideEventTypeDetails: false,
+      });
+    })();
+  }, []);
 
   return (
     <>
@@ -38,10 +50,11 @@ const Header = () => {
         </div>
 
         <div className="relative z-10 flex gap-0.5 group-hover:translate-x-1">
+          {/* Calendar Button */}
           <button
             data-cal-link="sourcingdenis/15min"
             data-cal-config='{"layout":"month_view"}'
-            className="relative p-1.5 rounded-lg transition-colors hover:bg-zinc-800 group/calendar text-white"
+            className="relative p-1.5 rounded-lg transition-colors hover:bg-zinc-800 group/calendar"
             aria-label="Schedule a meeting"
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-0 group-hover/calendar:opacity-75 transition duration-500"></div>
@@ -60,6 +73,7 @@ const Header = () => {
               />
             </svg>
           </button>
+
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -111,4 +125,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header; 
