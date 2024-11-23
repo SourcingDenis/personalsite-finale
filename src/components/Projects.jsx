@@ -4,7 +4,7 @@ import * as gtag from '../lib/gtag'
 const Projects = () => {
   const projects = [
     {
-      href: "https://search.sourcingdenis.live",
+      href: "https://search.sourcingdenis.live/?utm_source=my_site",
       title: "Job Search Tool",
       description: "Advanced Google search tool for finding job candidates and opportunities online",
       illustration: (
@@ -43,7 +43,7 @@ const Projects = () => {
       )
     },
     {
-      href: "https://githubber.sourcingdenis.live/",
+      href: "https://githubber.sourcingdenis.live/?utm_source=my_site",
       title: "GitHub User Finder",
       description: "Search and explore GitHub profiles with detailed user statistics",
       illustration: (
