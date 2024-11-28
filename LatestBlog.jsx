@@ -5,7 +5,7 @@ const LatestBlog = () => {
     {
       title: "Climbing the Ladder: A Comprehensive Seniority Guide for Talent Sourcers",
       date: "Aug 4, 2023",
-      url: "https://sourcingdenis.medium.com/climbing-the-ladder-a-comprehensive-seniority-guide-for-talent-sourcers-2d8a8c1e7e64",
+      url: "https://sourcingdenis.medium.com/climbing-the-ladder-a-comprehensive-seniority-guide-for-talent-sourcers-e6e60585e3f9",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-yellow-500">
           <path fillRule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" />
@@ -16,7 +16,7 @@ const LatestBlog = () => {
     {
       title: "Mastering the Art of ChatGPT Prompts: A Comprehensive Guide for HR and Recruitment",
       date: "May 28, 2023",
-      url: "https://sourcingdenis.medium.com/mastering-the-art-of-chatgpt-prompts-a-comprehensive-guide-for-hr-and-recruitment-2c7e5c31c01c",
+      url: "https://sourcingdenis.medium.com/mastering-the-art-of-chatgpt-prompts-a-comprehensive-guide-for-hr-and-recruitment-b6b5704233fa",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-blue-500">
           <path d="M16.5 7.5h-9v9h9v-9z" />
@@ -27,7 +27,7 @@ const LatestBlog = () => {
     {
       title: "CRISPE — Prompt Engineering Framework",
       date: "May 23, 2023",
-      url: "https://sourcingdenis.medium.com/crispe-prompt-engineering-framework-d2f5602d61fb",
+      url: "https://sourcingdenis.medium.com/crispe-prompt-engineering-framework-e47eaaf83611",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-green-500">
           <path fillRule="evenodd" d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z" />
