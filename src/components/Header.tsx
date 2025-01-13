@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import Image from 'next/image';
+import { getCalApi } from "@calcom/embed-react";
 
-const Header = () => {
-  const handleMouseMove = (e) => {
+interface HeaderProps {}
+
+export const Header: React.FC<HeaderProps> = () => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
     e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
   };
+
+  const handleCalendarClick = useCallback(async (e: React.MouseEvent) => {
+    e.preventDefault();
+    const cal = await getCalApi();
+    cal("ui", {
+      styles: { branding: { brandColor: "#000000" } },
+    });
+    
+    cal("modal", {
+      calLink: "sourcingdenis/15min",
+      config: {
+        layout: "month_view",
+      }
+    });
+  }, []);
 
   return (
     <div 
@@ -20,11 +39,14 @@ const Header = () => {
       
       <div className="relative z-10 flex flex-col justify-center items-start w-full">
         <div className="flex justify-center items-center gap-2 group-hover:translate-x-1">
-          <div className="relative overflow-hidden rounded-full">
-            <img
-              className="aspect-square h-10 w-10 transition-transform duration-300 group-hover:scale-105"
+          <div className="relative overflow-hidden rounded-full h-10 w-10">
+            <Image
+              src="/avatar.webp"
               alt="Denys Dinkevych profile picture"
-              src="/avatar.jpeg"
+              width={40}
+              height={40}
+              className="transition-transform duration-300 group-hover:scale-105"
+              priority
             />
           </div>
           <div>
@@ -35,6 +57,27 @@ const Header = () => {
       </div>
 
       <div className="relative z-10 flex gap-0.5 group-hover:translate-x-1">
+        <button
+          onClick={handleCalendarClick}
+          className="relative p-1.5 rounded-lg transition-colors hover:bg-zinc-800 group/calendar text-white touch-manipulation hidden sm:block"
+          aria-label="Schedule a meeting"
+        >
+          <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-0 group-hover/calendar:opacity-75 transition duration-500"></div>
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            className="relative w-4 h-4 transition-colors hover:text-blue-400 animate-pulse group-hover/calendar:animate-none"
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" 
+            />
+          </svg>
+        </button>
         <a
           target="_blank"
           rel="noopener noreferrer"
