@@ -40,7 +40,7 @@ const Header = () => {
             <img
               className="aspect-square h-10 w-10 transition-transform duration-300 group-hover:scale-105"
               alt="Denys Dinkevych profile picture"
-              src="https://media.licdn.com/dms/image/v2/D4D03AQELecM1vwV33g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1728990617837?e=1734566400&v=beta&t=an5ykpo_I3WoosI9fVpZIpuTM7Cj-iqB0wrokGrSupc"
+              src="/avatar.jpeg"
             />
           </div>
           <div>
